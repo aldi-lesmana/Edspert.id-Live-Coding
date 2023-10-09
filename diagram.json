@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "author": "Aldi Lesmana",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 35.4, "left": 50.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 39, "left": -259.8, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 323.2,
+      "left": 82.4,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -92, "left": 223.02, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -99.6,
+      "left": 138.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -99.6,
+      "left": 90.2,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "bb1:bp.1", "bb1:tp.1", "red", [ "v0" ] ],
+    [ "bb1:tn.2", "bb1:bn.2", "black", [ "v0" ] ],
+    [ "uno:GND.2", "bb1:bn.3", "black", [ "v28.7", "h194.3" ] ],
+    [ "uno:5V", "bb1:bp.4", "red", [ "v38.3", "h213.4" ] ],
+    [ "pir1:GND", "bb1:tn.18", "black", [ "v0" ] ],
+    [ "pir1:VCC", "bb1:tp.16", "red", [ "v0" ] ],
+    [ "pir1:OUT", "uno:2", "yellow", [ "v19.2", "h-292.24" ] ],
+    [ "bb1:bn.7", "lcd1:GND", "black", [ "v75.5", "h-84.8", "v48" ] ],
+    [ "bb1:bp.6", "lcd1:VCC", "red", [ "v75.9", "h-84.8", "v67.1" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "uno:A4", "lcd1:SDA", "magenta", [ "v0" ] ],
+    [ "led1:A", "uno:3", "blue", [ "v28.8", "h-167.2" ] ],
+    [ "led1:C", "bb1:tn.7", "black", [ "v0" ] ],
+    [ "led2:A", "uno:4", "#8f4814", [ "v19.2", "h-128.7" ] ],
+    [ "led2:C", "bb1:tn.3", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
